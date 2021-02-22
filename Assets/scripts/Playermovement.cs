@@ -18,7 +18,8 @@ public class Playermovement : MonoBehaviour
 
     public LayerMask HitthisLayer;
     public Transform jumppoint;
-    public bool laddermovent;
+    public bool laddermovent = false;
+    public float climbstrenghth;
     // Use this for initialization
     void Start()
     {
@@ -39,11 +40,18 @@ public class Playermovement : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow) && laddermovent == true)
         {
-            rb2d.AddForce(transform.up * speed);
+          //  rb2d.isKinematic = false;
+            rb2d.AddForce(transform.up * climbstrenghth);
+           
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && laddermovent == true)
         {
-            rb2d.AddForce(-transform.up * (speed / 2));
+           // rb2d.isKinematic = false;
+            rb2d.AddForce(-transform.up * climbstrenghth);
+        }
+        if(laddermovent == true)
+        {
+            //rb2d.isKinematic = true;
         }
 
 

@@ -28,7 +28,7 @@ public class bulletAttack : MonoBehaviour
     {
        if(collision.tag == "Player")
         {
-
+            Debug.Log("hit player");
         }
         else
         {

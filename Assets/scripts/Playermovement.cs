@@ -39,7 +39,7 @@ public class Playermovement : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow) && laddermovent == true)
         {
-            rb2d.AddForce(transform.up * (speed / 2));
+            rb2d.AddForce(transform.up * speed);
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) && laddermovent == true)
         {

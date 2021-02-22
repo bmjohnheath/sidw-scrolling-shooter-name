@@ -16,6 +16,9 @@ public class Playermovement : MonoBehaviour
 
     public Vector2 jumpheight;
 
+    public LayerMask HitthisLayer;
+    public Transform jumppoint;
+
     // Use this for initialization
     void Start()
     {
@@ -26,7 +29,7 @@ public class Playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        jumpcheck();
         
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
@@ -44,6 +47,28 @@ public class Playermovement : MonoBehaviour
     //}
 
     // Movement script
+    public void jumpcheck()
+    {
+        // RaycastHit hit;
+        RaycastHit2D hitInfo = Physics2D.Raycast(jumppoint.position, -jumppoint.up, 1); 
+        // RaycastHit hit;
+        //Vector3 shootdirection = jumppoint.transform.position + Vector3.up * 0.5f; ;
+        //Debug.DrawRay(jumppoint.transform.position, shootdirection * 100, Color.red, 3.0f);
+        if (hitInfo)
+        {
+            Debug.Log(hitInfo.collider.tag);
+            
+            if(hitInfo.collider.tag == "ground")
+            {
+               isGrounded = true;
+            }
+
+        }
+        //else
+        //{
+        //   // isGrounded = false;
+        //}
+    }
     void FixedUpdate()
     {
         float move = Input.GetAxis("Horizontal");

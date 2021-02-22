@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onbullet: {fileID: 5897034445100849121}
-  speed: 10
+  speed: 50
 --- !u!58 &2804788025566339223
 CircleCollider2D:
   m_ObjectHideFlags: 0
